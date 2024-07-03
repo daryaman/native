@@ -11,13 +11,13 @@ const UserForm = ({children},props: any) => {
   return (
     <View>
       <View style={{ marginVertical: 20 }}>
-        <AppInput onChangeText={setName} labelText='Nama' value={name} />
+        <AppInput onChangeText={setName} labelText='Nama' value={name} placeholder='Nama' />
       </View>
       <View style={{ marginVertical: 20 }}>
-        <AppInput onChangeText={setEmail} labelText='Email' value={email} keyboardType='email-address' />
+        <AppInput onChangeText={setEmail} labelText='Email' value={email} keyboardType='email-address' placeholder='Email' />
       </View>
       <View style={{ marginVertical: 20 }}>
-        <AppInput onChangeText={setPassword} labelText='Password' value={password} secureTextEntry={true} />
+        <AppInput onChangeText={setPassword} labelText='Password' value={password} secureTextEntry={true} placeholder='Password' />
       </View>
       {children}
     </View>

@@ -10,7 +10,7 @@ type TAppInput = {
 export const AppInput = ({ labelText, errors=[], ...props }: TAppInput) => {
   return (
     <>
-      <Text style={styles.label}>{labelText}</Text>
+      {/* <Text style={styles.label}>{labelText}</Text> */}
       <TextInput
         style={styles.input}
         {...props} />
@@ -28,11 +28,12 @@ const styles = StyleSheet.create({
     fontWeight: '300',
     fontSize: 16,
     marginBottom: 2,
-    color: 'white',
+    // color: 'white',
     letterSpacing: 1,
   },
   input: {
-    color: 'white',
+    // color: 'white'
+    fontSize: 18,
     borderBottomColor: 'gray',
     borderBottomWidth: 0.5,
     paddingVertical: 2,

@@ -2,24 +2,24 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   bgapp: {
-    backgroundColor: '#151515'
+    backgroundColor: '#fcfcf8'
   },
   bgprimary: {
-    backgroundColor: '#0064fa'
+    backgroundColor: '#6099f2'
   },
   bgsecondary: {
-    backgroundColor: '#fa9600'
+    backgroundColor: '#faad38'
   },
   bgneutral: {
     backgroundColor: '#ececff'
   },
   textprimary: {
-    color: '#0064fa',
+    color: '#6099f2',
     letterSpacing: 1,
     fontWeight: 300, 
   },
   textsecondary: {
-    color: '#fa9600',
+    color: '#faad38',
     letterSpacing: 1,
     fontWeight: 300, 
   },

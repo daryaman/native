@@ -4,12 +4,13 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 // import { AuthProvider } from '../hooks/UserContext'
 import { AppWrapper } from '../hooks/UserContext'
 import BottomMenu from '../partials/BottomMenu'
+import Style from './Style'
 
 export default function Layout({ children }: any) {
 
   return (
     <SafeAreaView>
-      <View style={{ width: '100%', backgroundColor: '#111313' }}>
+      <View style={[Style.bgapp, { width: '100%' }]}>
         <ScrollView showsVerticalScrollIndicator={false} style={{ width: '100%', height: '100%' }}>
           <View style={{ flexDirection: 'column', alignItems: 'center', paddingBottom:50 }}>
             <AppWrapper>
@@ -17,15 +18,14 @@ export default function Layout({ children }: any) {
             </AppWrapper>
           </View>
         </ScrollView>
-        <View style={{ 
+        <View style={[Style.bgprimary, { 
           position: 'absolute', 
           bottom: 0, 
           left: 0, 
           height: 50, 
-          backgroundColor: '#0064fa', 
           width: '100%',
           alignItems: 'center',
-          justifyContent: 'center' }}>
+          justifyContent: 'center' }]}>
           <BottomMenu />
         </View>
       </View>

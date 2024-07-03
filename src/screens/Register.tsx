@@ -3,17 +3,18 @@ import React, { useState } from 'react'
 import { LogoBig } from '../components/Logo.tsx'
 import UserForm from '../partials/UserForm.tsx';
 import { AppButtonPrimary, AppButtonSecondary } from '../components/AppButton.tsx';
+import Style from './Style.tsx';
 
 const Register = (props: any) => {
 
   return (
-    <View style={{ 
+    <View style={[
+          Style.bgapp, { 
           flexDirection: 'column', 
           justifyContent: 'center', 
           alignItems: 'center', 
           width: '100%', 
-          height: '100%', 
-          backgroundColor: '#151515' }}>
+          height: '100%'}]}>
       <ScrollView style={{width:'100%'}}>
         <View style={{ alignItems: 'center', paddingTop: 20, width: '100%' }}>
           <View style={{ flexDirection: 'row', width: '90%', alignItems: 'center', justifyContent: 'flex-end' }}>
@@ -67,6 +68,6 @@ const styles = StyleSheet.create({
   },
   txt: {
     textAlign: 'center',
-    color: 'white',
+    // color: 'white',
   },
 });

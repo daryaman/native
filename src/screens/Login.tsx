@@ -2,8 +2,9 @@ import { StyleSheet, View, Platform } from 'react-native'
 import React, { useState } from 'react'
 import { LogoBig } from '../components/Logo';
 import { AppInput } from '../components/AppInput';
-import AppButton, { AppButtonPrimary, AppButtonSecondary } from '../components/AppButton';
+import { AppButtonPrimary, AppButtonSecondary } from '../components/AppButton';
 import axios from 'axios';
+import Style from './Style';
 
 const Login = (props: any) => {
 
@@ -39,7 +40,7 @@ const Login = (props: any) => {
   }
 
   return (
-    <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%', backgroundColor: '#151515' }}>
+    <View style={[Style.bgapp, { flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }]}>
 
       <LogoBig />
 
@@ -50,6 +51,7 @@ const Login = (props: any) => {
             value={email} 
             keyboardType={'email-address'} 
             labelText='Email'
+            placeholder='Masukkan Email'
             errors={errors.email} />
         </View>
         <View style={{ marginVertical: 20 }}>

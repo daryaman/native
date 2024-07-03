@@ -26,7 +26,7 @@ const App = () => {
         screenOptions={{
           headerTitleAlign: 'center',
           headerShown: false,
-          statusBarColor: '#0064fa'
+          statusBarColor: '#6099f2'
         }}
       >
         <Stack.Screen

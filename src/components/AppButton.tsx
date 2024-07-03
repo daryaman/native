@@ -2,6 +2,7 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import Style from "../screens/Style";
 
 type TAppButton = {
   onPress?: any,
@@ -30,7 +31,7 @@ type TAppButtonPrimary = {
 
 export const AppButtonPrimary = ({ onPress, icon, iconSize, buttonText }: TAppButtonPrimary) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.button, { backgroundColor: '#0064fa', flexDirection: 'row', gap: 10 }]}>
+    <TouchableOpacity onPress={onPress} style={[styles.button, Style.bgprimary, { flexDirection: 'row', gap: 10 }]}>
       {icon ? <FontAwesome name={icon} size={iconSize} color='#ececff' /> : ''}
       <Text style={[styles.text, { color: 'white' }]}>{buttonText}</Text>
     </TouchableOpacity>
@@ -39,7 +40,7 @@ export const AppButtonPrimary = ({ onPress, icon, iconSize, buttonText }: TAppBu
 
 export const AppButtonSecondary = ({ onPress, icon, iconSize, buttonText }: TAppButtonPrimary) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.button, { backgroundColor: '#fa9600', flexDirection: 'row', gap: 10 }]}>
+    <TouchableOpacity onPress={onPress} style={[styles.button, Style.bgsecondary, { flexDirection: 'row', gap: 10 }]}>
       {icon ? <FontAwesome name={icon} size={iconSize} color='#ececff' /> : ''}
       <Text style={[styles.text, { color: 'white' }]}>{buttonText}</Text>
     </TouchableOpacity>
@@ -58,7 +59,7 @@ type TAppButtonSquare = {
 export const AppButtonSquare = ({ onPress, icon, iconName, iconSize, iconColor, buttonText }: TAppButtonSquare) => {
   return (
     <>
-      <TouchableOpacity style={styles.buttonSquare}>
+      <TouchableOpacity style={[styles.buttonSquare, Style.bgprimary]}>
         { icon == 'Ionicons' ? <Ionicons onPress={onPress} name={iconName} size={iconSize}  color={iconColor} /> : ''}
         { icon == 'FontAwesome' ? <FontAwesome onPress={onPress} name={iconName} size={iconSize} color={iconColor} /> : ''}
         { icon == 'MaterialCommunityIcons' ? <MaterialCommunityIcons onPress={onPress} name={iconName} size={iconSize}  color={iconColor} /> : ''}
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 8,
     borderRadius: 20,
-    elevation: 8,
+    elevation: 2,
     shadowColor: 'white',
     shadowOffset: {
       width: 1,
@@ -89,7 +90,6 @@ const styles = StyleSheet.create({
     width: 94,
     height: 94,
     borderRadius: 4,
-    backgroundColor: '#0064fa',
   },
   text: {
     fontWeight: '300',

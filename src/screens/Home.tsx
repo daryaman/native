@@ -5,6 +5,7 @@ import React, { useContext } from 'react'
 import Layout from './Layout'
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { AppButtonSquare } from '../components/AppButton';
+import Style from './Style';
 // import { useAppContext } from '../hooks/UserContext';
 
 const Home = (props: any) => {

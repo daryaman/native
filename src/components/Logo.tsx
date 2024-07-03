@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import Style from '../screens/Style'
 
 export const Logo = (props: any) => {
   return (
     <>
-      <FontAwesome name='openid' size={size} color={'#0064fa'} />
+      <FontAwesome name='openid' size={size} color={'#6099f2'} />
       {props.text ? <Text style={styles.text}>PIKIRULANG Corp</Text> : ''}
     </>
   )
@@ -14,7 +15,7 @@ export const Logo = (props: any) => {
 export const LogoBig = () => {
   return (
     <>
-      <FontAwesome name='openid' size={100} color={'#0064fa'} />
+      <FontAwesome name='openid' size={100} color={'#6099f2'} />
       <Text style={styles.text}>PIKIRULANG Corp</Text>
     </>
   )
@@ -23,7 +24,7 @@ export const LogoBig = () => {
 export const LogoSmall = () => {
   return (
     <>
-      <FontAwesome name='openid' size={32} color={'#0064fa'} />
+      <FontAwesome name='openid' size={32} color={'#6099f2'} />
     </>
   )
 }
