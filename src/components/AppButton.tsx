@@ -15,9 +15,9 @@ type TAppButton = {
 
 const AppButton = ({ onPress, icon, iconSize, buttonColor, buttonText, textColor }: TAppButton) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.button, { backgroundColor: buttonColor, flexDirection: 'row', gap: 10 }]}>
+    <TouchableOpacity onPress={onPress} style={[Style.button, { backgroundColor: buttonColor, flexDirection: 'row', gap: 10 }]}>
       {icon ? <FontAwesome name={icon} size={iconSize} color={textColor} /> : ''}
-      <Text style={[styles.text, { color: textColor }]}>{buttonText}</Text>
+      <Text style={[Style.buttonText, { color: textColor }]}>{buttonText}</Text>
     </TouchableOpacity>
   );
 };
@@ -31,18 +31,18 @@ type TAppButtonPrimary = {
 
 export const AppButtonPrimary = ({ onPress, icon, iconSize, buttonText }: TAppButtonPrimary) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.button, Style.bgprimary, { flexDirection: 'row', gap: 10 }]}>
+    <TouchableOpacity onPress={onPress} style={[Style.button, Style.bgprimary, { flexDirection: 'row', gap: 10 }]}>
       {icon ? <FontAwesome name={icon} size={iconSize} color='#ececff' /> : ''}
-      <Text style={[styles.text, { color: 'white' }]}>{buttonText}</Text>
+      <Text style={Style.buttonText}>{buttonText}</Text>
     </TouchableOpacity>
   );
 };
 
 export const AppButtonSecondary = ({ onPress, icon, iconSize, buttonText }: TAppButtonPrimary) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.button, Style.bgsecondary, { flexDirection: 'row', gap: 10 }]}>
+    <TouchableOpacity onPress={onPress} style={[Style.button, Style.bgsecondary, { flexDirection: 'row', gap: 10 }]}>
       {icon ? <FontAwesome name={icon} size={iconSize} color='#ececff' /> : ''}
-      <Text style={[styles.text, { color: 'white' }]}>{buttonText}</Text>
+      <Text style={Style.buttonText}>{buttonText}</Text>
     </TouchableOpacity>
   );
 };
@@ -70,19 +70,6 @@ export const AppButtonSquare = ({ onPress, icon, iconName, iconSize, iconColor, 
 };
 
 const styles = StyleSheet.create({
-  button: {
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 8,
-    borderRadius: 20,
-    elevation: 2,
-    shadowColor: 'white',
-    shadowOffset: {
-      width: 1,
-      height: 2
-    }
-  },
   buttonSquare: {
     gap: 8,
     justifyContent: 'center',
@@ -90,11 +77,6 @@ const styles = StyleSheet.create({
     width: 94,
     height: 94,
     borderRadius: 4,
-  },
-  text: {
-    fontWeight: '300',
-    fontSize: 18,
-    letterSpacing: 1
   },
   textSquare: {
     color: 'white',

@@ -4,8 +4,11 @@ import { LogoBig } from '../components/Logo.tsx'
 import UserForm from '../partials/UserForm.tsx';
 import { AppButtonPrimary, AppButtonSecondary } from '../components/AppButton.tsx';
 import Style from './Style.tsx';
+import { useNavigation } from '@react-navigation/native';
 
-const Register = (props: any) => {
+const Register = () => {
+
+  const navigation = useNavigation();
 
   return (
     <View style={[
@@ -18,10 +21,10 @@ const Register = (props: any) => {
       <ScrollView style={{width:'100%'}}>
         <View style={{ alignItems: 'center', paddingTop: 20, width: '100%' }}>
           <View style={{ flexDirection: 'row', width: '90%', alignItems: 'center', justifyContent: 'flex-end' }}>
-            <Text style={{color: 'white'}}>Sudah terdaftar ?</Text>
-            <TouchableOpacity onPress={() => props.navigation.navigate('Login')} style={[styles.btn, { backgroundColor: '#0064fa', marginLeft: 16 }]}>
-              <Text style={styles.txt}>
-                LOGIN
+            <Text style={[Style.text, {flex: 3, textAlign: 'right'}]}>Sudah terdaftar ?</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')} style={[Style.button, Style.bgprimary, { flex: 1, marginLeft: 16 }]}>
+              <Text style={Style.buttonText}>
+                Login
               </Text>
             </TouchableOpacity>
           </View>
@@ -40,14 +43,13 @@ const Register = (props: any) => {
             <UserForm />
 
             <View style={{ gap: 10, marginVertical: 20 }}>
-              <AppButtonPrimary onPress={() => props.navigation.navigate('Home')} buttonText='Daftar' />
+              <AppButtonPrimary onPress={() => navigation.navigate('Home')} buttonText='Daftar' />
 
-              <Text style={[styles.txt, { marginBottom: 10, marginTop: 30 }]}>
-                atau daftar menggunakan akun berikut :
+              <Text style={[Style.text, { marginTop: 30, textAlign: 'center' }]}>
+                atau gunakan akun :
               </Text>
 
-              <AppButtonSecondary onPress={() => props.navigation.navigate('OAuth')} buttonText='Google' icon='google' />
-              <AppButtonSecondary onPress={() => props.navigation.navigate('OAuth')} buttonText='facebook' icon='facebook' />
+              <AppButtonSecondary onPress={() => navigation.navigate('OAuth')} buttonText='Google' icon='google' iconSize={22} />
 
             </View>
           </View>
@@ -65,9 +67,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     elevation: 4,
     borderRadius: 20,
-  },
-  txt: {
-    textAlign: 'center',
-    // color: 'white',
   },
 });

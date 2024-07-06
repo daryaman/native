@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Feather from 'react-native-vector-icons/Feather'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { useNavigation, useIsFocused } from '@react-navigation/native'
+import Style from '../screens/Style'
 
 const BottomMenu = (props: any) => {
 
@@ -11,12 +11,12 @@ const BottomMenu = (props: any) => {
   const isFocused = useIsFocused();
 
   return (
-    <View style={{flexDirection: 'row', gap: 20}}>
-      <Ionicons onPress={()=>navigation.goBack()} name='chevron-back-outline' size={32} color='white'  />
-      <MaterialCommunityIcons onPress={()=>navigation.navigate('Home')} name='home-outline' size={32} color= '#ececff' />
-      <MaterialCommunityIcons onPress={()=>navigation.navigate('Messages')} name='email-outline' size={32} color='#ececff' />
-      <MaterialCommunityIcons onPress={()=>navigation.navigate('UserData')} name='account-circle-outline' size={32} color= '#ececff' />
-      <Feather onPress={()=>navigation.navigate('BuyCoffee')} name='coffee' size={32} color='#ececff' />
+    <View style={{flexDirection: 'row', width:'100%', justifyContent: 'space-evenly', alignItems: 'center'}}>
+      <Ionicons onPress={()=>navigation.goBack()} name='chevron-back-outline' size={36} style={Style.textColBg}  />
+      <MaterialCommunityIcons onPress={()=>navigation.navigate('Home')} name='home-outline' size={36} style={Style.textColBg} />
+      <MaterialCommunityIcons onPress={()=>navigation.navigate('UserData')} name='account-outline' size={38}  style={Style.textColBg} />
+      <MaterialCommunityIcons onPress={()=>navigation.navigate('Order')} name='open-in-new' size={38}  style={Style.textColBg} />
+      <Ionicons onPress={()=>navigation.navigate('BuyCoffee')} name='power' size={36} style={Style.textColNeutral} />
     </View>
   )
 }

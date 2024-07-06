@@ -1,13 +1,16 @@
-import { StyleSheet, View, Platform } from 'react-native'
+import { StyleSheet, View, Platform, Text, BackHandler } from 'react-native'
 import React, { useState } from 'react'
 import { LogoBig } from '../components/Logo';
 import { AppInput } from '../components/AppInput';
 import { AppButtonPrimary, AppButtonSecondary } from '../components/AppButton';
-import axios from 'axios';
+import axios from '../libs/axios';
 import Style from './Style';
+import { useNavigation } from '@react-navigation/native';
+import { login, loadUser } from '../hooks/auth';
 
-const Login = (props: any) => {
+const Login = () => {
 
+  const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
@@ -15,20 +18,18 @@ const Login = (props: any) => {
   async function handleLogin() {
     setErrors({});
     try {
-      await axios.post('http://10.0.2.2:8000/api/login', {
+      await login({
         email,
         password,
         device_name: `${Platform.OS} ${Platform.Version}`
-      }, {
-        headers: {
-          'X-Requested-With': 'XMLHttpRequest',
-          Accept: 'application/json'
-        },
-        withCredentials: true,
-        withXSRFToken: true
-      })
+      });
+
+      const user = await loadUser();
+
+      console.log(user);
+      
     } catch (e) {
-      if (e.response?.status === 422){
+      if (e.response?.status === 422) {
         setErrors(e.response.data.errors)
       }
       console.log(e.response?.status);
@@ -40,32 +41,34 @@ const Login = (props: any) => {
   }
 
   return (
-    <View style={[Style.bgapp, { flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }]}>
+    <View style={[Style.bgapp, { justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }]}>
 
       <LogoBig />
 
       <View style={{ width: '90%', marginTop: 20 }}>
         <View style={{ marginVertical: 20 }}>
-          <AppInput 
-            onChangeText={(text) => setEmail(text)} 
-            value={email} 
-            keyboardType={'email-address'} 
+          <AppInput
+            onChangeText={(text) => setEmail(text)}
+            value={email}
+            keyboardType={'email-address'}
             labelText='Email'
-            placeholder='Masukkan Email'
+            placeholder='Email'
             errors={errors.email} />
         </View>
         <View style={{ marginVertical: 20 }}>
-          <AppInput 
-            onChangeText={(text) => setPassword(text)} 
-            value={password} 
+          <AppInput
+            onChangeText={(text) => setPassword(text)}
+            value={password}
             labelText='Password'
+            placeholder='Password'
             secureTextEntry={true} />
         </View>
 
         <View style={{ gap: 10, marginVertical: 20 }}>
           <AppButtonPrimary onPress={handleLogin} buttonText='Login' />
-          <AppButtonPrimary onPress={() => props.navigation.navigate('Register')} buttonText='Register' />
-          <AppButtonSecondary buttonText='Keluar' />
+          <Text style={[Style.text, { marginTop: 20, textAlign: 'center'}]}>belum punya akun ?</Text>
+          <AppButtonSecondary onPress={() => navigation.navigate('Register')} buttonText='Daftar' />
+          {/* <AppButtonSecondary onPress={() => BackHandler.exitApp()} buttonText='Keluar' /> */}
         </View>
 
       </View>

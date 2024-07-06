@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './Home';
 import Login from './Login';
@@ -9,9 +9,14 @@ import Test from './Test';
 import LoginAs from './LoginAs';
 import UserData from './users/UserData';
 import UbahData from './users/UbahData';
-import { Alert, Button, Modal, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Button, Modal, StyleSheet, Text, View } from 'react-native';
 import BuyCoffee from './BuyCoffee';
 import Messages from './users/Messages';
+import Splash from './Splash';
+import Style from './Style';
+import Feather from 'react-native-vector-icons/Feather';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MakeOrder from './users/MakeOrder';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,28 +28,60 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName='Login'
-        screenOptions={{
-          headerTitleAlign: 'center',
-          headerShown: false,
-          statusBarColor: '#6099f2'
-        }}
+        screenOptions={({ navigation }) => ({
+          statusBarColor: '#6099f2',
+          headerBackVisible: false,
+          headerShadowVisible: false,
+          headerStyle: {
+            backgroundColor: '#fcfcf8',
+          },
+          headerTintColor: '#6099f2',
+          headerTitleStyle: {
+            fontFamily: 'GemunuLibre-Light',
+            fontSize: 24,
+          },
+          headerRight: () => (
+            <View style={{ flexDirection: 'row' }}>
+              <Feather name='coffee' size={32} onPress={() => navigation.navigate('BuyCoffee')}
+                style={Style.textColSecondary} />
+              <MaterialCommunityIcons name='dots-vertical' size={32} onPress={() => setModalVisible(true)}
+                style={Style.textColPrimary} />
+            </View>
+          ),
+        })}
       >
+        <Stack.Screen
+          name="Splash"
+          component={Splash}
+        />
         <Stack.Screen
           name="Login"
           component={Login}
+          options={{
+            headerShown: false
+          }}
         />
         <Stack.Screen
           name="Register"
           component={Register}
+          options={{
+            headerShown: false
+          }}
         />
         <Stack.Screen
           name="LoginAs"
           component={LoginAs}
           options={{ title: 'Masuk sebagai' }}
-        />
+          />
         <Stack.Screen
           name="Home"
           component={Home}
+          options={{ title: 'Home' }}
+        />
+        <Stack.Screen
+          name="Order"
+          component={MakeOrder}
+          options={{ title: 'Pilih lokasi' }}
         />
         <Stack.Screen
           name="Messages"
@@ -69,7 +106,7 @@ const App = () => {
         <Stack.Screen
           name="BuyCoffee"
           component={BuyCoffee}
-          options={{ title: 'Tks' }}
+          options={{ title: 'Traktir' }}
         />
         <Stack.Screen
           name="Test"
@@ -83,31 +120,16 @@ const App = () => {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-          setModalVisible(!modalVisible);
-        }}>
+          setModalVisible(false);
+        }}
+      >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={[styles.modalText, { marginBottom: 24, fontWeight: 'bold' }]}>Traktir developer dengan :</Text>
-            <View style={{ flexDirection: 'row', gap: 20, alignItems: 'center', marginBottom: 24 }}>
-              <Text>Kopi  X </Text>
-              <TextInput style={{ paddingVertical: 1, borderBottomWidth: 1, borderBottomColor: 'grey' }} />
-              <Text style={{
-                borderRadius: 30,
-                paddingVertical: 8,
-                paddingHorizontal: 12,
-                backgroundColor: 'tomato',
-                color: 'white'
-              }}
-              >1</Text>
-              <Text>2</Text>
-              <Text>3</Text>
-            </View>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle}>Traktir</Text>
-            </Pressable>
+            <Text style={styles.modalText}>Hello, I am a modal!</Text>
+            <Button
+              title="Hide Modal"
+              onPress={() => setModalVisible(false)}
+            />
           </View>
         </View>
       </Modal>
@@ -120,6 +142,11 @@ const App = () => {
 export default App;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   centeredView: {
     flex: 1,
     justifyContent: 'center',
@@ -130,7 +157,7 @@ const styles = StyleSheet.create({
     margin: 20,
     backgroundColor: 'white',
     borderRadius: 20,
-    padding: 24,
+    padding: 35,
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
@@ -140,22 +167,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-  },
-  button: {
-    borderRadius: 5,
-    padding: 10,
-    elevation: 2,
-  },
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
-  buttonClose: {
-    backgroundColor: 'tomato',
-  },
-  textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
   },
   modalText: {
     marginBottom: 15,

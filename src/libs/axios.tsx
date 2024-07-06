@@ -1,10 +1,10 @@
 import Axios from 'axios'
 
 const axios = Axios.create({
-    baseURL: 'http://127.0.0.1:8000/api',
+    baseURL: 'http://10.0.2.2:8000/api',
     headers: {
         'X-Requested-With': 'XMLHttpRequest',
-        'Accept' : 'app'
+        Accept: 'application/json'
     },
     withCredentials: true,
     withXSRFToken: true

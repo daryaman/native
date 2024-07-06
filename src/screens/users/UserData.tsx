@@ -8,7 +8,7 @@ import Style from '../Style'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
 const UserData = () => {
-
+  
   const navigation = useNavigation();
 
   return (
@@ -38,6 +38,7 @@ const UserData = () => {
         </View>
       </AppCard>
       <AppCardNeutral mtop={16}>
+        <Text style={{ marginBottom: 20 }}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, impedit tempora adipisci similique necessitatibus cum dignissimos quae voluptate? Atque, odio?</Text>
         <Text style={{ marginBottom: 20 }}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, impedit tempora adipisci similique necessitatibus cum dignissimos quae voluptate? Atque, odio?</Text>
         <AppButtonPrimary buttonText='Ubah' onPress={() => navigation.navigate('UbahData')} />
       </AppCardNeutral>

@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const Messages = () => {
+const Messages = (navigation, route) => {
   return (
     <View>
-      <Text>Messages</Text>
+      <Text>{route.name}</Text>
     </View>
   )
 }

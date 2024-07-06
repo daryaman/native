@@ -1,6 +1,6 @@
 "use client";
 
-import { ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Image, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useContext } from 'react'
 import Layout from './Layout'
 import FontAwesome from "react-native-vector-icons/FontAwesome";
@@ -14,7 +14,7 @@ const Home = (props: any) => {
     <Layout>
       {/* <Text>{userId}</Text> */}
       {/* Hero section ====================== */}
-      <ImageBackground 
+      {/* <ImageBackground 
         source={require('../assets/images/andrea.jpg')} 
         style={{ width: '100%', alignItems: 'center' }}
         resizeMode='cover' >
@@ -28,10 +28,13 @@ const Home = (props: any) => {
           <Text style={{ color: 'white', fontSize: 32, marginTop: 20  }}>Selamat pagi ATENG..</Text>
           <Text style={{ color: 'white', fontSize: 16, marginTop: 10, marginBottom: 10 }}>Mau melakukan apa hari ini?</Text>
         </View>
-      </ImageBackground>
+      </ImageBackground> */}
+
+      <Text style={[Style.GemunuLibreRegular, Style.textColPrimary, { fontSize: 32, marginTop: 10 }]}>Selamat datang</Text>
+      <Image source={require('../assets/images/burung.webp')} style={{ width: '100%', resizeMode: 'contain', marginTop: 20 }} />
 
       {/* Menu section ======================= */}
-      <View style={{ width: '90%', paddingVertical: 10 }}>
+      {/* <View style={{ width: '90%', paddingVertical: 10 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
           <AppButtonSquare icon='FontAwesome' iconName='history' iconSize={32} iconColor='white' buttonText='Riwayat' />
           <AppButtonSquare icon='FontAwesome' iconName='calendar' iconSize={32} iconColor='white' buttonText='Jadwal' />
@@ -48,9 +51,9 @@ const Home = (props: any) => {
       <View style={{ width: '100%', alignItems: 'center', paddingVertical: 10, marginTop: 10 }}>
         <View style={{ width: '90%' }}>
           <Text style={{ fontSize: 16, color: 'white' }}>Tips harian :</Text>
-          <Text style={{ color: 'white', marginTop: 5, fontWeight: 300, letterSpacing: 1 }}>Ipsum dolor sit amet consectetur adipisicing elit. Enim, ut sint neque possimus consectetur consequuntur nihil impedit, provident ratione iusto amet et. Itaque velit error eveniet sunt minus qui quas dolore natus sapiente obcaecati aperiam culpa maiores doloribus dolorum accusamus sed cupiditate, officiis fugit corrupti possimus. Officia minima ex explicabo.</Text>
+          <Text style={{ marginTop: 5, fontWeight: 300, letterSpacing: 1 }}>Ipsum dolor sit amet consectetur adipisicing elit. Enim, ut sint neque possimus consectetur consequuntur nihil impedit, provident ratione iusto amet et. Itaque velit error eveniet sunt minus qui quas dolore natus sapiente obcaecati aperiam culpa maiores doloribus dolorum accusamus sed cupiditate, officiis fugit corrupti possimus. Officia minima ex explicabo.</Text>
         </View>
-      </View>
+      </View> */}
     </Layout>
   )
 }

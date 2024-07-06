@@ -6,7 +6,7 @@ import Style from '../screens/Style'
 export const Logo = (props: any) => {
   return (
     <>
-      <FontAwesome name='openid' size={size} color={'#6099f2'} />
+      <FontAwesome name='openid' size={props.size} color={'#6099f2'} />
       {props.text ? <Text style={styles.text}>PIKIRULANG Corp</Text> : ''}
     </>
   )
